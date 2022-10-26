@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="nav">
     <router-link to="/money">记账</router-link>
     |
     <router-link to="/labels">标签</router-link>
@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {};
 </script>
 
