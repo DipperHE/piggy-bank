@@ -14,7 +14,9 @@ import Types from "@/components/Money/Types.vue";
 import Notes from "@/components/Money/Notes.vue";
 import Tags from "@/components/Money/Tags.vue";
 import { Component, Watch } from "vue-property-decorator";
-const records = JSON.parse(window.localStorage.getItem("records") || "[]");
+const records: Record[] = JSON.parse(
+  window.localStorage.getItem("records") || "[]"
+);
 type Record = {
   tags: string[];
   notes: string;
