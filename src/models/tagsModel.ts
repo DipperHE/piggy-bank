@@ -1,17 +1,22 @@
 const localStorageKeyName = "tags";
+type Tag = {
+  id: string;
+  name: string;
+};
 type TagsModel = {
-  data: string[];
-  fetch: () => string[];
+  data: Tag[];
+  fetch: () => Tag[];
   create: (name: string) => "success" | "duplicated"; // 联合类型
   save: () => void;
 };
 const tagsModel: TagsModel = {
   data: [],
   create(name) {
-    if (this.data.indexOf(name) >= 0) {
+    const names = this.data.map((item) => item.name);
+    if (names.indexOf(name) >= 0) {
       return "duplicated";
     }
-    this.data.push(name);
+    this.data.push({ id: name, name: name });
     this.save();
     return "success";
   },
