@@ -21,7 +21,6 @@ import FormItem from "@/components/Money/FormItem.vue";
 import Tags from "@/components/Money/Tags.vue";
 import { Component, Watch } from "vue-property-decorator";
 import recordsModel from "@/models/recordsModel";
-import tagsModel from "@/models/tagsModel";
 
 const records = recordsModel.fetch();
 
