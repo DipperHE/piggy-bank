@@ -20,13 +20,18 @@ import Types from "@/components/Money/Types.vue";
 import FormItem from "@/components/Money/FormItem.vue";
 import Tags from "@/components/Money/Tags.vue";
 import { Component } from "vue-property-decorator";
-import store from "@/store/index2";
+import oldStore from "@/store/index2";
 
 @Component({
   components: { Tags, FormItem, Types, NumberPad },
+  computed: {
+    recordList() {
+      return this.$store.state.count;
+    },
+  },
 })
 export default class Money extends Vue {
-  records = store.recordList;
+  records = oldStore.recordList;
   record: RecordItem = { tags: [], notes: "", type: "-", amount: 0 };
   onUpdateNotes(value: string) {
     this.record.notes = value;
@@ -35,7 +40,7 @@ export default class Money extends Vue {
     this.record.amount = parseFloat(value);
   }
   saveRecord() {
-    store.createRecord(this.record);
+    oldStore.createRecord(this.record);
   }
 }
 </script>
@@ -49,3 +54,6 @@ export default class Money extends Vue {
   padding: 12px 0;
 }
 </style>
+
+function recordList() { throw new Error("Function not implemented."); } function
+recordList() { throw new Error("Function not implemented."); }
